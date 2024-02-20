@@ -1,10 +1,13 @@
-package org.example;
+package ca.uqac.lif.cep.io.discordpalette;
 
+import ca.uqac.lif.cep.Connector;
+import ca.uqac.lif.cep.Processor;
+import ca.uqac.lif.cep.io.Print;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import org.example.discord.MessageListener;
+import ca.uqac.lif.cep.io.discordpalette.beepbeep.DiscordPalette;
 
 public class Main {
     private static final String token = "NjQ2NzUwNzU4MTc5NDM4NTkz.GehI_Z.4PBY9XmZtusKX6Vty8EIaDXos8-yWqSsR_p55g";
@@ -19,6 +22,12 @@ public class Main {
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .build();
 
-        jdaBuilder.addEventListener(new MessageListener());
+        DiscordPalette discordPalette = DiscordPalette.getInstance(jdaBuilder);
+
+        Processor discordMessageReader = discordPalette.getDiscordMessageReader();
+
+        Print print = new Print();
+
+        Connector.connect(discordMessageReader, 0, print, 0);
     }
 }

@@ -1,8 +1,8 @@
-package org.example.beepbeep;
+package ca.uqac.lif.cep.io.discordpalette.beepbeep;
 
 import ca.uqac.lif.cep.Processor;
 import net.dv8tion.jda.api.JDA;
-import org.example.beepbeep.Processor.DiscordMessageReader;
+import ca.uqac.lif.cep.io.discordpalette.beepbeep.Processor.DiscordMessageReader;
 
 import java.util.ArrayList;
 

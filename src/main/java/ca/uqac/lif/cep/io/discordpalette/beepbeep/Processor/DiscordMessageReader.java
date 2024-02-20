@@ -1,4 +1,4 @@
-package org.example.beepbeep.Processor;
+package ca.uqac.lif.cep.io.discordpalette.beepbeep.Processor;
 
 import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
