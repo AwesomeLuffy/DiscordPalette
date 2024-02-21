@@ -23,6 +23,26 @@ public class Messages {
     protected Messages(){}
 
     /**
+     * Get the id of the message as a String
+     * Discord use String instead of Long for the id cause id is very large number
+     */
+    public static final class Id extends UnaryFunction<Message, String> {
+        public Id() {
+            super(Message.class, String.class);
+        }
+
+        @Override
+        public String getValue(Message message) {
+            return message.getId();
+        }
+
+        @Override
+        public String toString() {
+            return "Id";
+        }
+    }
+
+    /**
      * Get the content of the message as a String
      */
     public static final class Content extends UnaryFunction<Message, String>{
