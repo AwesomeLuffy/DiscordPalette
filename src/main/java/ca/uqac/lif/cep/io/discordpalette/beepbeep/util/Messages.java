@@ -17,7 +17,7 @@ public class Messages {
     public static final GuildMember member = new GuildMember();
     public static final GuildChannel channel = new GuildChannel();
     public static final ServerGuild guild = new ServerGuild();
-    public static final Files files = new Files();
+    public static final Attachments files = new Attachments();
 
 
     protected Messages(){}
@@ -27,7 +27,7 @@ public class Messages {
      * Discord use String instead of Long for the id cause id is very large number
      */
     public static final class Id extends UnaryFunction<Message, String> {
-        public Id() {
+        protected Id() {
             super(Message.class, String.class);
         }
 
@@ -46,7 +46,7 @@ public class Messages {
      * Get the content of the message as a String
      */
     public static final class Content extends UnaryFunction<Message, String>{
-        public Content(){
+        protected Content(){
             super(Message.class, String.class);
         }
 
@@ -65,7 +65,7 @@ public class Messages {
      * Get the Author of the message
      */
     public static final class Author extends UnaryFunction<Message, User>{
-        public Author(){
+        protected Author(){
             super(Message.class, User.class);
         }
 
@@ -86,7 +86,7 @@ public class Messages {
      */
     public static final class GuildMember extends UnaryFunction<Message, Member>{
 
-        public GuildMember(){
+        protected GuildMember(){
             super(Message.class, Member.class);
         }
 
@@ -105,7 +105,7 @@ public class Messages {
      * Get the Channel of the message
      */
     public static final class GuildChannel extends UnaryFunction<Message, Channel>{
-        public GuildChannel(){
+        protected GuildChannel(){
             super(Message.class, Channel.class);
         }
 
@@ -124,7 +124,7 @@ public class Messages {
      * Get the Guild of the message
      */
     public static final class ServerGuild extends UnaryFunction<Message, Guild>{
-        public ServerGuild(){
+        protected ServerGuild(){
             super(Message.class, Guild.class);
         }
 
@@ -139,9 +139,13 @@ public class Messages {
         }
     }
 
-    public static final class Files extends UnaryFunction<Message, Collection<Message.Attachment>>{
+    /**
+     * Get the attachments of the message (the files) as a Collection
+     */
+    public static final class Attachments extends UnaryFunction<Message, Collection<Message.Attachment>>{
 
-        public Files(){
+        @SuppressWarnings("unchecked")
+        protected Attachments(){
             super(Message.class, (Class<Collection<Message.Attachment>>) (Class<?>) Collection.class);
         }
 
