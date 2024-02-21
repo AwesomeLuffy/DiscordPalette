@@ -48,7 +48,7 @@ public class DiscordMessageReader extends SynchronousProcessor {
             if (event.getAuthor().isBot()) {
                 return;
             }
-            getPushableOutput(0).push(event.getMessage().getContentDisplay());
+            getPushableOutput(0).push(event.getMessage());
         }
     }
 }
