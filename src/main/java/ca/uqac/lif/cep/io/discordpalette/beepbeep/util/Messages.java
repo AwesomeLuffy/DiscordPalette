@@ -27,7 +27,7 @@ public class Messages {
      * Discord use String instead of Long for the id cause id is very large number
      */
     public static final class Id extends UnaryFunction<Message, String> {
-        protected Id() {
+        private Id() {
             super(Message.class, String.class);
         }
 
@@ -46,7 +46,7 @@ public class Messages {
      * Get the content of the message as a String
      */
     public static final class Content extends UnaryFunction<Message, String>{
-        protected Content(){
+        private Content(){
             super(Message.class, String.class);
         }
 
@@ -65,7 +65,7 @@ public class Messages {
      * Get the Author of the message
      */
     public static final class Author extends UnaryFunction<Message, User>{
-        protected Author(){
+        private Author(){
             super(Message.class, User.class);
         }
 
@@ -86,7 +86,7 @@ public class Messages {
      */
     public static final class GuildMember extends UnaryFunction<Message, Member>{
 
-        protected GuildMember(){
+        private GuildMember(){
             super(Message.class, Member.class);
         }
 
@@ -105,7 +105,7 @@ public class Messages {
      * Get the Channel of the message
      */
     public static final class GuildChannel extends UnaryFunction<Message, Channel>{
-        protected GuildChannel(){
+        private GuildChannel(){
             super(Message.class, Channel.class);
         }
 
@@ -124,7 +124,7 @@ public class Messages {
      * Get the Guild of the message
      */
     public static final class ServerGuild extends UnaryFunction<Message, Guild>{
-        protected ServerGuild(){
+        private ServerGuild(){
             super(Message.class, Guild.class);
         }
 
@@ -145,7 +145,7 @@ public class Messages {
     public static final class Attachments extends UnaryFunction<Message, Collection<Message.Attachment>>{
 
         @SuppressWarnings("unchecked")
-        protected Attachments(){
+        private Attachments(){
             super(Message.class, (Class<Collection<Message.Attachment>>) (Class<?>) Collection.class);
         }
 
