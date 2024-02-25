@@ -1,19 +1,10 @@
-package ca.uqac.lif.cep.io.discordpalette.beepbeep;
+package ca.uqac.lif.cep.io.discordpalette.discord;
 
 import ca.uqac.lif.cep.Processor;
 import net.dv8tion.jda.api.JDA;
-import ca.uqac.lif.cep.io.discordpalette.beepbeep.Processor.DiscordMessageReader;
+import ca.uqac.lif.cep.io.discordpalette.discord.Processor.DiscordMessageReader;
 
-import java.util.ArrayList;
-
-public class DiscordPalette {
-
-    // In case of the user want to have different bot instances
-    // We have to do that cause a user can't have two bots with the same token
-    private static final ArrayList<DiscordPalette> instances = new ArrayList<>();
-
-    // Actuel token of the bot
-    private final JDA BOT_INSTANCE;
+public class DiscordPalette extends DiscordBotUtility {
 
 
     /**
@@ -21,7 +12,8 @@ public class DiscordPalette {
      * @param _bot The bot instance that we want to connect BeepBeep to
      */
     private DiscordPalette(JDA _bot) {
-        this.BOT_INSTANCE = _bot;
+        super(_bot);
+        instances.add(this);
     }
 
     /**
