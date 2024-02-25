@@ -237,4 +237,54 @@ public class Guilds {
             return "Member";
         }
     }
+
+    /**
+     * Represent a Role object that can only be found in a Guild
+     * To Apply function that is inside procede as follows :
+     * ApplyFunction roleName = new ApplyFunction(Guilds.GuildRole.name);
+     */
+    public static final class GuildRole {
+        public static final Name name = new Name();
+        public static final Position position = new Position();
+
+        private GuildRole(){}
+
+        /**
+         * Get the name of the role as a String
+         */
+        public static final class Name extends UnaryFunction<Role, String> {
+            private Name() {
+                super(Role.class, String.class);
+            }
+
+            @Override
+            public String getValue(Role role) {
+                return role.getName();
+            }
+
+            @Override
+            public String toString() {
+                return "RoleName";
+            }
+        }
+
+        /**
+         * Get the position of the role as an Integer
+         */
+        public static final class Position extends UnaryFunction<Role, Integer> {
+            private Position() {
+                super(Role.class, Integer.class);
+            }
+
+            @Override
+            public Integer getValue(Role role) {
+                return role.getPosition();
+            }
+
+            @Override
+            public String toString() {
+                return "RolePosition";
+            }
+        }
+    }
 }
