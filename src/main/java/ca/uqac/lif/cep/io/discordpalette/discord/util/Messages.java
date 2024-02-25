@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.beepbeep.util;
+package ca.uqac.lif.cep.io.discordpalette.discord.util;
 
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Guild;
@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.Channel;
 
 import java.util.Collection;
-import java.util.List;
 
 public class Messages {
 

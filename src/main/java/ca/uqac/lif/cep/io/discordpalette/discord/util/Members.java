@@ -1,10 +1,9 @@
-package ca.uqac.lif.cep.io.discordpalette.beepbeep.util;
+package ca.uqac.lif.cep.io.discordpalette.discord.util;
 
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.*;
 
 import java.util.Collection;
-import java.util.List;
 
 public class Members {
     public static final Id id = new Id();
