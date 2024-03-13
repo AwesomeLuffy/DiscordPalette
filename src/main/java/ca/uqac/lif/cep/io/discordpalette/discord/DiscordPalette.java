@@ -30,9 +30,20 @@ public class DiscordPalette extends DiscordBotUtility {
      */
     public Processor getDiscordMessageReader(){
         DiscordMessageReader discordMessageReader = new DiscordMessageReader();
-        this.BOT_INSTANCE.addEventListener(discordMessageReader.getDiscordMessageListener());
+        this.BOT_INSTANCE.addEventListener(discordMessageReader.getDiscordMessageReceivedListener());
         return discordMessageReader;
     }
+
+    /**
+     * Get the DiscordMessageUpdate processor
+     * @return The discord message update processor
+     */
+
+    public Processor getDiscordMessageUpdateReader(){
+        DiscordMessageReader discordMessageReader = new DiscordMessageReader();
+        this.BOT_INSTANCE.addEventListener(discordMessageReader.getDiscordMessageUpdatedListener());
+        return discordMessageReader;
+        }
 
     /**
      * Get the instance of DiscordPalette, we have to do that to avoid having two instances of the same bot
