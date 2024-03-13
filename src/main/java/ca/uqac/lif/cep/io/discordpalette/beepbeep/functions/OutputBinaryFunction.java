@@ -9,8 +9,7 @@ import ca.uqac.lif.cep.functions.BinaryFunction;
  * @param <U> The output
  */
 public abstract class OutputBinaryFunction<T, U> extends BinaryFunction<Object, T, U> {
-    @SuppressWarnings("unchecked")
-    protected OutputBinaryFunction(Class<?> clazzInput, Class<?> clazzOutput) {
-        super(Object.class, (Class<T>) clazzInput, (Class<U>) clazzOutput);
+    protected OutputBinaryFunction(Class<T> clazzInput, Class<U> clazzOutput) {
+        super(Object.class, clazzInput, clazzOutput);
     }
 }

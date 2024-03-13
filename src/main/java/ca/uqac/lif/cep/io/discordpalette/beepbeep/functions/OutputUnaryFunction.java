@@ -10,8 +10,7 @@ import ca.uqac.lif.cep.functions.UnaryFunction;
  */
 public abstract class OutputUnaryFunction<T> extends UnaryFunction<Object, T> {
 
-    @SuppressWarnings("unchecked")
-    protected OutputUnaryFunction(Class<?> clazz) {
-        super(Object.class, (Class<T>) clazz);
+    protected OutputUnaryFunction(Class<T> clazz) {
+        super(Object.class, clazz);
     }
 }
