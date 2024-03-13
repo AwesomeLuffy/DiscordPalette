@@ -2,7 +2,9 @@ package ca.uqac.lif.cep.io.discordpalette.discord.Processor;
 
 import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
+import net.dv8tion.jda.api.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.Queue;
@@ -38,13 +40,30 @@ public class DiscordMessageReader extends SynchronousProcessor {
      * Get the listener of the Discord event message
      * @return ListenerAdapter (Discord event message listener)
      */
-    public ListenerAdapter getDiscordMessageListener() {
-        return new onDiscordMessageListener();
+    public ListenerAdapter getDiscordMessageReceivedListener() {
+        return new onDiscordMessageReceivedListener();
     }
 
-    protected class onDiscordMessageListener extends ListenerAdapter{
+    /**
+     * Get the listener of the Discord event message update
+     * @return ListenerAdapter (Discord event message update listener)
+     */
+    public ListenerAdapter getDiscordMessageUpdatedListener() {
+        return new onDiscordMessageUpdatedListener();
+    }
+    protected class onDiscordMessageReceivedListener extends ListenerAdapter{
         @Override
         public void onMessageReceived(MessageReceivedEvent event) {
+            if (event.getAuthor().isBot()) {
+                return;
+            }
+            getPushableOutput(0).push(event.getMessage());
+        }
+    }
+
+    protected class onDiscordMessageUpdatedListener extends ListenerAdapter{
+        @Override
+        public void onMessageUpdate(MessageUpdateEvent event) {
             if (event.getAuthor().isBot()) {
                 return;
             }
