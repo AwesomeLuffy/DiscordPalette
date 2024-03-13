@@ -1,5 +1,6 @@
 package ca.uqac.lif.cep.io.discordpalette.discord;
 
+import ca.uqac.lif.cep.functions.UnaryFunction;
 import ca.uqac.lif.cep.io.discordpalette.beepbeep.functions.OutputBinaryFunction;
 import ca.uqac.lif.cep.io.discordpalette.beepbeep.functions.OutputUnaryFunction;
 import net.dv8tion.jda.api.JDA;
@@ -66,13 +67,13 @@ abstract class DiscordBotUtility {
     /**
      * Get a guild that the bot had already join
      */
-    public final class GuildFromId extends OutputBinaryFunction<String, Guild> {
+    public final class GuildFromId extends UnaryFunction<String, Guild> {
         private GuildFromId(){
             super(String.class, Guild.class);
         }
 
         @Override
-        public Guild getValue(Object o, String guildId) {
+        public Guild getValue(String guildId) {
             return BOT_INSTANCE.getGuildById(guildId);
         }
     }
