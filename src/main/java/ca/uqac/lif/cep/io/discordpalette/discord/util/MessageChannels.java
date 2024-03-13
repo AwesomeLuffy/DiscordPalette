@@ -1,15 +1,22 @@
 package ca.uqac.lif.cep.io.discordpalette.discord.util;
 
+import ca.uqac.lif.cep.SynchronousProcessor;
+import ca.uqac.lif.cep.functions.BinaryFunction;
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
+import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
+import net.dv8tion.jda.internal.entities.ReceivedMessage;
 
 public class MessageChannels {
     public static final Id id = new Id();
     public static final Name name = new Name();
     public static final Guilds guilds = new Guilds();
     public static final CanTalk canTalk = new CanTalk();
+    public static final SendMessage sendMessage = new SendMessage();
 
     protected MessageChannels(){}
 
@@ -90,6 +97,26 @@ public class MessageChannels {
         @Override
         public String toString() {
             return "CanTalk";
+        }
+    }
+
+    /**
+     * Send a message in a channel
+     */
+    public static final class SendMessage extends BinaryFunction<MessageChannel, String, Message>{
+        private SendMessage(){
+            super(MessageChannel.class, String.class, Message.class);
+        }
+
+
+        @Override
+        public Message getValue(MessageChannel messageChannel, String message){
+            return messageChannel.sendMessage(message).submit().join();
+        }
+
+        @Override
+        public String toString() {
+            return "SendMessage";
         }
     }
 
