@@ -26,8 +26,7 @@ abstract class DiscordBotUtility {
     }
 
     /**
-     * Get the id of the bot as a String (Discord use String instead of Long for the id cause id is very large number)
-     * We can put anything in entry of this class, it will always return the User object
+     * Get the bot as User to have access to the bot's information and actions like a normal user
      */
     public final class SelfUser extends OutputUnaryFunction<User> {
         private SelfUser() {

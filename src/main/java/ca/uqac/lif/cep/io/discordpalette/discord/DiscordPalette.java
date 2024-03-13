@@ -26,7 +26,7 @@ public class DiscordPalette extends DiscordBotUtility {
 
     /**
      * Get the DiscordMessageReader processor, will have to be moved in another place
-     * @return
+     * @return The discord message reader processor
      */
     public Processor getDiscordMessageReader(){
         DiscordMessageReader discordMessageReader = new DiscordMessageReader();
@@ -38,7 +38,7 @@ public class DiscordPalette extends DiscordBotUtility {
      * Get the instance of DiscordPalette, we have to do that to avoid having two instances of the same bot
      * Also, it will simplify the use of BeepBeep with Discord
      * @param _bot The bot instance that we want to connect BeepBeep to
-     * @return
+     * @return The instance of DiscordPalette
      */
     public static DiscordPalette getInstance(JDA _bot){
         for(DiscordPalette instance : instances){
