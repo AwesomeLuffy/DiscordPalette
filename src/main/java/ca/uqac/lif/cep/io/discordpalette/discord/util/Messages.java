@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.Channel;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
 import java.util.Collection;
 
@@ -103,14 +104,17 @@ public class Messages {
     /**
      * Get the Channel of the message
      */
-    public static final class GuildChannel extends UnaryFunction<Message, Channel>{
+    public static final class GuildChannel extends UnaryFunction<Message, TextChannel>{
         private GuildChannel(){
-            super(Message.class, Channel.class);
+            super(Message.class, TextChannel.class);
         }
 
         @Override
-        public Channel getValue(Message message) {
-            return message.getChannel();
+        public TextChannel getValue(Message message) throws ClassCastException{
+            if(message.getChannel() instanceof TextChannel)
+                return (TextChannel) message.getChannel();
+            else
+                throw new ClassCastException("The channel is not a TextChannel");
         }
 
         @Override
