@@ -1,22 +1,22 @@
 package ca.uqac.lif.cep.io.discordpalette.discord.util;
 
+import ca.uqac.lif.cep.AsynchronousProcessor;
+import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
-import ca.uqac.lif.cep.functions.BinaryFunction;
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
-import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
-import net.dv8tion.jda.internal.entities.ReceivedMessage;
+
+import java.util.Queue;
 
 public class MessageChannels {
     public static final Id id = new Id();
     public static final Name name = new Name();
     public static final Guilds guilds = new Guilds();
     public static final CanTalk canTalk = new CanTalk();
-    public static final SendMessage sendMessage = new SendMessage();
+    public static final SendMessage sendMsg = new SendMessage();
 
     protected MessageChannels(){}
 
@@ -100,23 +100,37 @@ public class MessageChannels {
         }
     }
 
-    /**
-     * Send a message in a channel
-     */
-    public static final class SendMessage extends BinaryFunction<MessageChannel, String, Message>{
-        private SendMessage(){
-            super(MessageChannel.class, String.class, Message.class);
-        }
-
-
-        @Override
-        public Message getValue(MessageChannel messageChannel, String message){
-            return messageChannel.sendMessage(message).submit().join();
+    public static class SendMessage extends SynchronousProcessor {
+        public SendMessage() {
+            super(2, 1);
         }
 
         @Override
-        public String toString() {
-            return "SendMessage";
+        protected boolean compute(Object[] inputs, Queue<Object[]> queue) {
+            if (!(inputs[0] instanceof MessageChannel channel) || !(inputs[1] instanceof String message)) {
+                return false;
+            }
+            try {
+                queue.add(new Object[]{channel.sendMessage(message).submit().join()});
+            }
+            catch (InsufficientPermissionException e){
+                System.out.println("The bot does not have the permission to send a message in this channel");
+                return false;
+            }
+            catch (AssertionError e){
+                System.out.println("The bot is rate limited ! Please wait a few seconds before sending another message");
+                return false;
+            }
+            catch (Exception e){
+                System.out.println("An error occurred while sending the message");
+                return false;
+            }
+            return true;
+        }
+
+        @Override
+        public Processor duplicate(boolean b) {
+            throw new UnsupportedOperationException("This processor cannot be duplicated");
         }
     }
 
