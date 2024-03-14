@@ -1,6 +1,5 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.util;
+package ca.uqac.lif.cep.io.discordpalette.discord.utils;
 
-import ca.uqac.lif.cep.AsynchronousProcessor;
 import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
 import ca.uqac.lif.cep.functions.UnaryFunction;

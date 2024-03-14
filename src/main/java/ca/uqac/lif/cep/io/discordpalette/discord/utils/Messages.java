@@ -1,11 +1,10 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.util;
+package ca.uqac.lif.cep.io.discordpalette.discord.utils;
 
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
-import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
 import java.util.Collection;
