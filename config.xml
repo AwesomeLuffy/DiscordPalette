@@ -39,7 +39,7 @@
     <mainclass>ca.uqac.lif.cep.discordpalette.Main</mainclass>
 
     <!-- Target JDK version for compilation -->
-    <targetjdk>11</targetjdk>
+    <targetjdk>14</targetjdk>
 
     <!-- Installation folders -->
     <srcdir>src</srcdir>
