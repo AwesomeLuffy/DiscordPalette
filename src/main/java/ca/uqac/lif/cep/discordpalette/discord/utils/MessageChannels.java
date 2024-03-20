@@ -106,11 +106,11 @@ public class MessageChannels {
 
         @Override
         protected boolean compute(Object[] inputs, Queue<Object[]> queue) {
-            if (!(inputs[0] instanceof MessageChannel channel) || !(inputs[1] instanceof String message)) {
+            if (!(inputs[0] instanceof MessageChannel) || !(inputs[1] instanceof String)) {
                 return false;
             }
             try {
-                queue.add(new Object[]{channel.sendMessage(message).submit().join()});
+                queue.add(new Object[]{((MessageChannel)inputs[0]).sendMessage(inputs[1].toString()).submit().join()});
             }
             catch (InsufficientPermissionException e){
                 System.out.println("The bot does not have the permission to send a message in this channel");
