@@ -51,7 +51,7 @@
     <property name="build.package" value="antrun/"/>
 
     <!-- The target JDK version for the build -->
-    <property name="build.targetjdk" value="11"/>
+    <property name="build.targetjdk" value="14"/>
 
     <!-- The folder where libraries (ant-contrib, etc.) will be downloaded
          if necessary -->
