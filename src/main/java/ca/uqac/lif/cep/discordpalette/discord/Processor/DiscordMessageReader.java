@@ -1,8 +1,7 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.Processor;
+package ca.uqac.lif.cep.discordpalette.discord.Processor;
 
 import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
-import net.dv8tion.jda.api.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

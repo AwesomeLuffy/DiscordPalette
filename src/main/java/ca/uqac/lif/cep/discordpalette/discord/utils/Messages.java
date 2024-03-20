@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.utils;
+package ca.uqac.lif.cep.discordpalette.discord.utils;
 
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Guild;
@@ -11,6 +11,7 @@ import java.util.Collection;
 
 public class Messages {
 
+    public static final Id id = new Id();
     public static final Content content = new Content();
     public static final Author author = new Author();
     public static final GuildMember member = new GuildMember();

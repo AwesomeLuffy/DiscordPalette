@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.utils;
+package ca.uqac.lif.cep.discordpalette.discord.utils;
 
 import ca.uqac.lif.cep.functions.BinaryFunction;
 import ca.uqac.lif.cep.functions.UnaryFunction;
@@ -18,7 +18,6 @@ public class Guilds {
     public static final Owner owner = new Owner();
     public static final Members members = new Members();
     public static final Roles roles = new Roles();
-    public static final MemberRoles memberRoles = new MemberRoles();
     public static final MemberFromUser memberFromUser = new MemberFromUser();
     public static final MemberFromId memberFromId = new MemberFromId();
 

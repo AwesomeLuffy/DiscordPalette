@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.beepbeep.functions;
+package ca.uqac.lif.cep.discordpalette.beepbeep.functions;
 
 import ca.uqac.lif.cep.functions.BinaryFunction;
 

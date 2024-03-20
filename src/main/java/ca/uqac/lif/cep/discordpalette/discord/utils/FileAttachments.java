@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.utils;
+package ca.uqac.lif.cep.discordpalette.discord.utils;
 
 import ca.uqac.lif.cep.functions.UnaryFunction;
 import net.dv8tion.jda.api.entities.Message;

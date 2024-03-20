@@ -1,8 +1,7 @@
-package ca.uqac.lif.cep.io.discordpalette.discord;
+package ca.uqac.lif.cep.discordpalette.discord;
 
+import ca.uqac.lif.cep.discordpalette.beepbeep.functions.OutputUnaryFunction;
 import ca.uqac.lif.cep.functions.UnaryFunction;
-import ca.uqac.lif.cep.io.discordpalette.beepbeep.functions.OutputBinaryFunction;
-import ca.uqac.lif.cep.io.discordpalette.beepbeep.functions.OutputUnaryFunction;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;

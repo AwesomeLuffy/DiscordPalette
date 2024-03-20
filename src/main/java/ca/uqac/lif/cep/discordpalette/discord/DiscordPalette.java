@@ -1,8 +1,8 @@
-package ca.uqac.lif.cep.io.discordpalette.discord;
+package ca.uqac.lif.cep.discordpalette.discord;
 
 import ca.uqac.lif.cep.Processor;
 import net.dv8tion.jda.api.JDA;
-import ca.uqac.lif.cep.io.discordpalette.discord.Processor.DiscordMessageReader;
+import ca.uqac.lif.cep.discordpalette.discord.Processor.DiscordMessageReader;
 
 public class DiscordPalette extends DiscordBotUtility {
 

@@ -1,4 +1,4 @@
-package ca.uqac.lif.cep.io.discordpalette.discord.utils;
+package ca.uqac.lif.cep.discordpalette.discord.utils;
 
 import ca.uqac.lif.cep.Processor;
 import ca.uqac.lif.cep.SynchronousProcessor;
@@ -13,7 +13,7 @@ import java.util.Queue;
 public class MessageChannels {
     public static final Id id = new Id();
     public static final Name name = new Name();
-    public static final Guilds guilds = new Guilds();
+    public static final Guilds guild = new Guilds();
     public static final CanTalk canTalk = new CanTalk();
     public static final SendMessage sendMsg = new SendMessage();
 
