@@ -22,7 +22,7 @@ There are 2 main library used in the project
 
 You can see more examples in the [documentation](https://awesomeluffy.github.io/DiscordPaletteDocumentation/introduction.html)
 
-![DiscordPalette_ReadMessage](https://github.com/AwesomeLuffy/DiscordPalette/assets/56047226/73491f1b-a258-4a1e-8511-866eec0a33fc)
+![DiscordPalette_ReadMessage](https://github.com/AwesomeLuffy/DiscordPalette/assets/56047226/f1d92d5f-575b-41b6-83ff-6eed1fb0e28f)
 
 See the full code in details in [ReadMessage.java](https://github.com/AwesomeLuffy/DiscordPalette/tree/master/src/main/java/ca/uqac/lif/cep/discordpalette/examples/ReadMessage.java)
 
